@@ -1,0 +1,15 @@
+version: '3'
+services:
+  moshensky_com:
+    build: .
+    environment:
+      # ACME_CA_URI: "https://acme-staging.api.letsencrypt.org/directory"
+      VIRTUAL_HOST: "moshensky.com, www.moshensky.com"
+      LETSENCRYPT_HOST: "moshensky.com, www.moshensky.com"
+      LETSENCRYPT_EMAIL: nikita@moshensky.com
+    expose:
+     - "80"
+networks:
+  default:
+    external:
+      name: nginx-proxy
